@@ -23,5 +23,19 @@ namespace MiniFacebookVisual.Models
         bool CheckRequest(int userID, int friendID);
         bool CreateFriendRequest(int userID, int friendID);
         List<User> GetFriends(int id);
+        bool ChangeUser(int id, string firstName, string lastName, string pwd, string imageLocation);
+        int AddPost(int userID, string postTxt, string postImage);
+        List<Post> GetPosts(int id);
+        List<Post> GetPostsById(int id);
+        bool LikePost(int postID, int userID);
+        bool DislikePost(int postID, int userID);
+        bool IsLiked(int postID, int userID);
+        int LikesCount(int postID);
+        bool AddComment(int postID, int userID, string comment);
+        List<Comment> GetComments(int postID);
+        int AddTag(string name);
+        bool AddPostToTag(int tagID, int postID);
+        List<string> GetTags(int postID);
+
     }
 }

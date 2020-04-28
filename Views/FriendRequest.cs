@@ -77,7 +77,10 @@ namespace MiniFacebookVisual
 
         private void feedBtn_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Form next = new FeedView();
+            next.ShowDialog();
+            this.Close();
         }
     }
 }

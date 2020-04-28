@@ -26,6 +26,8 @@ namespace MiniFacebookVisual
             imageLocation = "";
 
             nameLabel.Text = user.firstName;
+
+            imageLocation = "C:\\Users\\Mariana De la Vega\\Desktop\\Patrones\\MiniFacebookVisual\\images\\profileIcon.png";
         }
 
         private void selectImageBtn_Click(object sender, EventArgs e)
@@ -49,12 +51,6 @@ namespace MiniFacebookVisual
 
         private void guardarBtn_Click(object sender, EventArgs e)
         {
-
-            /*Image img = profilePictureImage.Image;
-            byte[] arr;
-            ImageConverter converter = new ImageConverter();
-            arr = (byte[])converter.ConvertTo(img, typeof(byte[]));*/
-
             bool res = proxy.AddProfilePicture(imageLocation, user.ID);
 
             if (res)

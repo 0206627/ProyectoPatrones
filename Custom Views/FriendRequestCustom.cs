@@ -32,13 +32,25 @@ namespace MiniFacebookVisual.CustomViews
             int x = 25;
             int y = 20;
 
-            foreach (User user in _results)
+            if (!(_results.Count > 0))
             {
-                var temp = this.CreateItem(user, x, y);
-                _mainPanel.Controls.Add(temp);
-                y += temp.Size.Height + 30;
+                Label notLabel = new Label();
+                notLabel.Location = new Point(x, y);
+                notLabel.AutoSize = true;
+                notLabel.Text = "Sin solicitudes de amistad.";
+                notLabel.Font = new Font(notLabel.Font.FontFamily, 15, FontStyle.Regular);
+                _mainPanel.Controls.Add(notLabel);
             }
+            else
+            {
 
+                foreach (User user in _results)
+                {
+                    var temp = this.CreateItem(user, x, y);
+                    _mainPanel.Controls.Add(temp);
+                    y += temp.Size.Height + 30;
+                }
+            }
         }
 
         private Panel CreateItem(User user, int x, int y)

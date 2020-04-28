@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChooseProfilePicture));
             this.bienvenidoLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.profilePictureImage = new System.Windows.Forms.PictureBox();
@@ -61,6 +62,7 @@
             // 
             this.profilePictureImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.profilePictureImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.profilePictureImage.Image = ((System.Drawing.Image)(resources.GetObject("profilePictureImage.Image")));
             this.profilePictureImage.Location = new System.Drawing.Point(507, 54);
             this.profilePictureImage.Name = "profilePictureImage";
             this.profilePictureImage.Size = new System.Drawing.Size(417, 386);

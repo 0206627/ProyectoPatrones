@@ -25,6 +25,7 @@ namespace MiniFacebookVisual
             this.proxy = MainView.proxy;
             result = new FriendListResult(this, friendListPanel, user.ID, user.friends, proxy);
             result.AddResults();
+            nameBtn.Text = user.firstName;
         }
 
         private void nameBtn_Click(object sender, EventArgs e)
@@ -69,6 +70,19 @@ namespace MiniFacebookVisual
             {
                 MessageBox.Show("Rellenar búsqueda.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void FriendList_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void feedBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form next = new FeedView();
+            next.ShowDialog();
+            this.Close();
         }
     }
 }

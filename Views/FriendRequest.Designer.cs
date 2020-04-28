@@ -57,7 +57,7 @@
             // resultsPanel
             // 
             this.resultsPanel.AutoScroll = true;
-            this.resultsPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.resultsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.resultsPanel.Location = new System.Drawing.Point(140, 269);
             this.resultsPanel.Name = "resultsPanel";
             this.resultsPanel.Size = new System.Drawing.Size(1475, 744);

@@ -1,14 +1,9 @@
 ﻿using Core_API.Models;
+using DAL_API.Chain_of_Responsibility;
 using MiniFacebookVisual.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MiniFacebookVisual
@@ -30,7 +25,22 @@ namespace MiniFacebookVisual
 
             if (emailTxt.Text != "" && pwdText.Text != "")
             {
-                res = proxy.LogIn(emailTxt.Text, pwdText.Text);
+                string pattern = "^([0-9a-zA-z]([-\\.\\w]*[0-9a-zA-z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)" +
+                    "[a-zA-Z]{2,9})$";
+
+                if (!Regex.IsMatch(emailTxt.Text, pattern))
+                {
+                    MessageBox.Show("Escribir un correo electrónico válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                var logIn = new LogIn(emailTxt.Text, pwdText.Text);
+                var emailHandler = new EmailHandler();
+                var pwdHandler = new PasswordHandler();
+
+                emailHandler.SetNext(pwdHandler);
+                res = Convert.ToInt32(ClientHandler.ClientCode(emailHandler, logIn));
+
                 if (res != 0) correct = true;
             }
             else
@@ -41,7 +51,8 @@ namespace MiniFacebookVisual
 
             if (!correct)
             {
-                MessageBox.Show("Ocurrió un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Correo o contraseña incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                pwdText.Clear();
                 return;
 
             }
@@ -54,7 +65,7 @@ namespace MiniFacebookVisual
             user.friends = proxy.GetFriends(user.ID);
 
             this.Hide();
-            Form next = new Profile();
+            Form next = new FeedView();
             next.ShowDialog();
             this.Close();
         }
@@ -82,6 +93,19 @@ namespace MiniFacebookVisual
                 {
                     MessageBox.Show("Correo electrónico inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     valid = false;
+                    return;
+                }
+
+                if (pwdRegisterTxt.Text.Length > 7) valid = true;
+                else
+                {
+                    MessageBox.Show("Tu contraseña debe tener al menos 8 caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    valid = false;
+                    pwdRegisterTxt.Text = "Contraseña";
+                    pwdRegisterTxt.UseSystemPasswordChar = false;
+                    pwdRegisterTxt.ForeColor = SystemColors.InactiveCaption;
+         
+                    return;
                 }
 
                 var ts = DateTime.Now - birthdayRegisterTxt.Value;
@@ -138,6 +162,12 @@ namespace MiniFacebookVisual
                 else
                 {
                     MessageBox.Show("Correo electrónico ya utilizado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    emailRegisterTxt.Text = "Correo electrónico";
+                    emailRegisterTxt.ForeColor = SystemColors.InactiveCaption;
+                    pwdRegisterTxt.Text = "Contraseña";
+                    pwdRegisterTxt.UseSystemPasswordChar = false;
+                    pwdRegisterTxt.ForeColor = SystemColors.InactiveCaption;
+
                 }
             }
 
@@ -231,12 +261,12 @@ namespace MiniFacebookVisual
 
         private void MainView_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+
         }
 
         private void MainView_FormClosed(object sender, FormClosedEventArgs e)
         {
-         
+
         }
     }
 }

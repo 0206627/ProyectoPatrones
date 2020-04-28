@@ -18,9 +18,23 @@ namespace MiniFacebookVisual.Models
             _client = new RestClient(_urlBase);
         }
 
+        public int AddPost(int userID, string postTxt, string postImage)
+        {
+            var request = new RestRequest($"AddPost?userID={userID}&postTxt={postTxt}&postImage={postImage}");
+            var response = _client.Get<int>(request);
+            return response.Data;
+        }
+
         public bool AddProfilePicture(string imageLocation, int id)
         {
             var request = new RestRequest($"AddProfilePicture?imageLocation={imageLocation}&id={id}");
+            var response = _client.Get<bool>(request);
+            return response.Data;
+        }
+
+        public bool ChangeUser(int id, string firstName, string lastName, string pwd, string imageLocation)
+        {
+            var request = new RestRequest($"ChangeUser?id={id}&firstName={firstName}&lastName={lastName}&pwd={pwd}&imageLocation={imageLocation}");
             var response = _client.Get<bool>(request);
             return response.Data;
         }
@@ -88,10 +102,45 @@ namespace MiniFacebookVisual.Models
             return response.Data;
         }
 
+        public List<Post> GetPosts(int id)
+        {
+            var request = new RestRequest($"GetPosts?id={id}");
+            var response = _client.Get<List<Post>>(request);
+            return response.Data;
+        }
+
+        public List<Post> GetPostsById(int id)
+        {
+            var request = new RestRequest($"GetPostsById?id={id}");
+            var response = _client.Get<List<Post>>(request);
+            return response.Data;
+        }
+
         public User GetUserById(int id)
         {
             var request = new RestRequest($"GetUserById?id={id}");
             var response = _client.Get<User>(request);
+            return response.Data;
+        }
+
+        public bool LikePost(int postID, int userID)
+        {
+            var request = new RestRequest($"LikePost?postID={postID}&userID={userID}");
+            var response = _client.Get<bool>(request);
+            return response.Data;
+        }
+
+        public bool DislikePost(int postID, int userID)
+        {
+            var request = new RestRequest($"DislikePost?postID={postID}&userID={userID}");
+            var response = _client.Get<bool>(request);
+            return response.Data;
+        }
+
+        public bool IsLiked(int postID, int userID)
+        {
+            var request = new RestRequest($"IsLiked?postID={postID}&userID={userID}");
+            var response = _client.Get<bool>(request);
             return response.Data;
         }
 
@@ -113,6 +162,48 @@ namespace MiniFacebookVisual.Models
         {
             var request = new RestRequest($"SearchUsers?pattern={pattern}&id={id}");
             var response = _client.Get<List<User>>(request);
+            return response.Data;
+        }
+
+        public int LikesCount(int postID)
+        {
+            var request = new RestRequest($"LikesCount?postID={postID}");
+            var response = _client.Get<int>(request);
+            return response.Data;
+        }
+
+        public bool AddComment(int postID, int userID, string comment)
+        {
+            var request = new RestRequest($"AddComment?postID={postID}&userID={userID}&comment={comment}");
+            var response = _client.Get<bool>(request);
+            return response.Data;
+        }
+
+        public List<Comment> GetComments(int postID)
+        {
+            var request = new RestRequest($"GetComments?postID={postID}");
+            var response = _client.Get<List<Comment>>(request);
+            return response.Data;
+        }
+
+        public int AddTag(string name)
+        {
+            var request = new RestRequest($"AddTag?name={name}");
+            var response = _client.Get<int>(request);
+            return response.Data;
+        }
+
+        public bool AddPostToTag(int tagID, int postID)
+        {
+            var request = new RestRequest($"AddPostToTag?tagID={tagID}&postID={postID}");
+            var response = _client.Get<bool>(request);
+            return response.Data;
+        }
+
+        public List<string> GetTags(int postID)
+        {
+            var request = new RestRequest($"GetTags?postID={postID}");
+            var response = _client.Get<List<string>>(request);
             return response.Data;
         }
     }

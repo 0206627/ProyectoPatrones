@@ -87,6 +87,7 @@
             this.feedBtn.ForeColor = System.Drawing.Color.White;
             this.feedBtn.Name = "feedBtn";
             this.feedBtn.UseVisualStyleBackColor = false;
+            this.feedBtn.Click += new System.EventHandler(this.feedBtn_Click);
             // 
             // label1
             // 

@@ -1,5 +1,8 @@
 ﻿using Core_API.Models;
+
 using MiniFacebookVisual.Models;
+using MiniFacebookVisual.Patrones.BuilderPattern.Builder;
+using MiniFacebookVisual.Patrones.BuilderPattern.Director;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,6 +42,17 @@ namespace MiniFacebookVisual
             else if (checkInversedRequest) friendsBtn.Text = "Cancelar solicitud";
             else if (!checkFriendship) friendsBtn.Text = "Añadir amigo";
             else friendsBtn.Text = "Eliminar amigo";
+            var feedCooker = new FeedCooker(new BuilderProfileFeed(this.refresh, this, postPanel, user.ID, otherUser.ID, proxy));
+            feedCooker.ObtenerFeed();
+        }
+
+        public void refresh()
+        {
+            int scroll = postPanel.VerticalScroll.Value;
+            postPanel.Controls.Clear();
+            var feedCooker = new FeedCooker(new BuilderProfileFeed(this.refresh, this, postPanel, user.ID, otherUser.ID, proxy));
+            feedCooker.ObtenerFeed();
+            postPanel.VerticalScroll.Value = scroll;
         }
 
         private void nameBtn_Click(object sender, EventArgs e)
@@ -157,6 +171,24 @@ namespace MiniFacebookVisual
             Form next = new MainView();
             next.ShowDialog();
             this.Close();
+        }
+
+        private void feedBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form next = new FeedView();
+            next.ShowDialog();
+            this.Close();
+        }
+
+        private void bannerImage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OtherProfile_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1,5 +1,9 @@
 ﻿using Core_API.Models;
+
 using MiniFacebookVisual.Models;
+using MiniFacebookVisual.Patrones.BuilderPattern.Builder;
+using MiniFacebookVisual.Patrones.BuilderPattern.Director;
+using MiniFacebookVisual.Views;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -23,6 +27,17 @@ namespace MiniFacebookVisual
             profilePictureImage.Image = Image.FromFile(user.profilePicture);
             nameBtn.Text = user.firstName;
             countFriendsLabel.Text = user.friends.Count.ToString();
+            var feedCooker = new FeedCooker(new BuilderProfileFeed(this.refresh, this, postPanel, user.ID, user.ID, proxy));
+            feedCooker.ObtenerFeed();
+        }
+
+        public void refresh()
+        {
+            int scroll = postPanel.VerticalScroll.Value;
+            postPanel.Controls.Clear();
+            var feedCooker = new FeedCooker(new BuilderProfileFeed(this.refresh, this, postPanel, user.ID, user.ID, proxy));
+            feedCooker.ObtenerFeed();
+            postPanel.VerticalScroll.Value = scroll;
         }
 
         private void searchTxt_TextChanged(object sender, EventArgs e)
@@ -95,6 +110,27 @@ namespace MiniFacebookVisual
             Form next = new FriendList(user);
             next.ShowDialog();
             this.Close();
+        }
+
+        private void editProfileBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form next = new EditProfile();
+            next.ShowDialog();
+            this.Close();
+        }
+
+        private void feedBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form next = new FeedView();
+            next.ShowDialog();
+            this.Close();
+        }
+
+        private void bannerImage_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
