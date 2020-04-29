@@ -1,4 +1,4 @@
-﻿using Core_API.Models;
+﻿using Core.Models;
 using MiniFacebookVisual.Models;
 using MiniFacebookVisual.Patrones.BuilderPattern.Models;
 using System;

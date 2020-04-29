@@ -1,5 +1,5 @@
-﻿using Core_API.Models;
-using DAL_API.Chain_of_Responsibility;
+﻿using Core.Models;
+using DAL.Chain_of_Responsibility;
 using MiniFacebookVisual.Models;
 using System;
 using System.Drawing;

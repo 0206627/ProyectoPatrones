@@ -1,4 +1,4 @@
-﻿using Core_API.Models;
+﻿using Core.Models;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ namespace MiniFacebookVisual.Models
     public class ProxyFacebook : IProxyFacebook
     {
         private RestClient _client;
-        private string _urlBase = "https://localhost:44373/api/Facebook/";
+        private string _urlBase = "https://localhost:44388/api/Facebook/";
 
         public ProxyFacebook()
         {

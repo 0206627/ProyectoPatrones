@@ -1,5 +1,4 @@
-﻿using Core_API.Models;
-
+﻿using Core.Models;
 using MiniFacebookVisual.Models;
 using System;
 using System.Collections.Generic;

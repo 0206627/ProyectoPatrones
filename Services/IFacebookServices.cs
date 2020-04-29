@@ -1,17 +1,16 @@
 ﻿using Core.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace MiniFacebookVisual.Models
+namespace Services
 {
-    public interface IProxyFacebook
+    public interface IFacebookServices
     {
-        User GetUserById(int id);
-        int LogIn(string email, string pwd);
         int Register(string firstName, string lastName, string email, string pwd, string gender, DateTime birthday);
+        int LogIn(string email, string pwd);
+        User GetUserById(int id);
+        bool DeleteUserById(int id);
         bool CheckExistingUser(string email);
         bool AddProfilePicture(string imageLocation, int id);
         List<User> SearchUsers(string pattern, int id);
@@ -37,6 +36,5 @@ namespace MiniFacebookVisual.Models
         bool AddPostToTag(int tagID, int postID);
         List<string> GetTags(int postID);
         List<User> GetLikes(int postID);
-
     }
 }
