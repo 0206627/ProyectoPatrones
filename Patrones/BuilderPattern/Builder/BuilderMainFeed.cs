@@ -55,6 +55,8 @@ namespace MiniFacebookVisual.Patrones.BuilderPattern.Builder
             nameLbl.Font = new Font(nameLbl.Font.FontFamily, 10, FontStyle.Bold);
             nameLbl.AutoSize = true;
             nameLbl.Text = $"{user.firstName} {user.lastName}";
+            nameLbl.Name = user.ID.ToString();
+            nameLbl.Click += new EventHandler(nameLblClick);
 
             Label dateLbl = new Label();
             dateLbl.Location = new Point(nameLbl.Location.X, nameLbl.Location.Y + 20);
@@ -129,47 +131,21 @@ namespace MiniFacebookVisual.Patrones.BuilderPattern.Builder
             return temp;
         }
 
-        public void profileBtnClick(object sender, EventArgs e)
+        public void nameLblClick(object sender, EventArgs e)
         {
-            feed.form.Hide();
-            Form next = new OtherProfile(Convert.ToInt32((sender as Button).Name));
-            next.ShowDialog();
-            feed.form.Close();
-        }
-
-        public void acceptBtnClick(object sender, EventArgs e)
-        {
-            bool check = feed.proxy.CreateFriendship(feed.userID, Convert.ToInt32((sender as Button).Name));
-
-            if (check)
+            if (Convert.ToInt32((sender as Label).Name) != feed.userID)
             {
                 feed.form.Hide();
-                Form next = new OtherProfile(Convert.ToInt32((sender as Button).Name));
+                Form next = new OtherProfile(Convert.ToInt32((sender as Label).Name));
+                next.ShowDialog();
+                feed.form.Close();
+            } else
+            {
+                feed.form.Hide();
+                Form next = new Profile();
                 next.ShowDialog();
                 feed.form.Close();
             }
-            else
-            {
-                MessageBox.Show("Error al agregar amigo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
-
-        public void rejectBtnClick(object sender, EventArgs e)
-        {
-            bool check = feed.proxy.DeleteFriendshipRequest(feed.userID, Convert.ToInt32((sender as Button).Name));
-
-            if (check)
-            {
-                feed.form.Hide();
-                Form next = new FriendRequest();
-                next.ShowDialog();
-                feed.form.Close();
-            }
-            else
-            {
-                MessageBox.Show("Error al rechazar amigo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
     }
 }

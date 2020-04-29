@@ -128,48 +128,5 @@ namespace MiniFacebookVisual.Patrones.BuilderPattern.Builder
 
             return temp;
         }
-
-        public void profileBtnClick(object sender, EventArgs e)
-        {
-            feed.form.Hide();
-            Form next = new OtherProfile(Convert.ToInt32((sender as Button).Name));
-            next.ShowDialog();
-            feed.form.Close();
-        }
-
-        public void acceptBtnClick(object sender, EventArgs e)
-        {
-            bool check = feed.proxy.CreateFriendship(feed.userID, Convert.ToInt32((sender as Button).Name));
-
-            if (check)
-            {
-                feed.form.Hide();
-                Form next = new OtherProfile(Convert.ToInt32((sender as Button).Name));
-                next.ShowDialog();
-                feed.form.Close();
-            }
-            else
-            {
-                MessageBox.Show("Error al agregar amigo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        public void rejectBtnClick(object sender, EventArgs e)
-        {
-            bool check = feed.proxy.DeleteFriendshipRequest(feed.userID, Convert.ToInt32((sender as Button).Name));
-
-            if (check)
-            {
-                feed.form.Hide();
-                Form next = new FriendRequest();
-                next.ShowDialog();
-                feed.form.Close();
-            }
-            else
-            {
-                MessageBox.Show("Error al rechazar amigo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
     }
 }
