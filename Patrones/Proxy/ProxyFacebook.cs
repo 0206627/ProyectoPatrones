@@ -206,5 +206,12 @@ namespace MiniFacebookVisual.Models
             var response = _client.Get<List<string>>(request);
             return response.Data;
         }
+
+        public List<User> GetLikes(int postID)
+        {
+            var request = new RestRequest($"GetLikes?postID={postID}");
+            var response = _client.Get<List<User>>(request);
+            return response.Data;
+        }
     }
 }

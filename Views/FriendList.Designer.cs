@@ -40,11 +40,14 @@
             this.nameBtn = new System.Windows.Forms.Button();
             this.searchBtn = new System.Windows.Forms.Button();
             this.bannerImage = new System.Windows.Forms.PictureBox();
+            this.noPostLbl = new System.Windows.Forms.Label();
+            this.friendListPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bannerImage)).BeginInit();
             this.SuspendLayout();
             // 
             // friendListPanel
             // 
+            this.friendListPanel.Controls.Add(this.noPostLbl);
             this.friendListPanel.Location = new System.Drawing.Point(177, 172);
             this.friendListPanel.Name = "friendListPanel";
             this.friendListPanel.Size = new System.Drawing.Size(1346, 722);
@@ -147,7 +150,7 @@
             this.nameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nameBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameBtn.ForeColor = System.Drawing.Color.White;
-            this.nameBtn.Location = new System.Drawing.Point(964, 38);
+            this.nameBtn.Location = new System.Drawing.Point(931, 38);
             this.nameBtn.Name = "nameBtn";
             this.nameBtn.Size = new System.Drawing.Size(124, 43);
             this.nameBtn.TabIndex = 81;
@@ -177,6 +180,16 @@
             this.bannerImage.Size = new System.Drawing.Size(1771, 116);
             this.bannerImage.TabIndex = 78;
             this.bannerImage.TabStop = false;
+            this.bannerImage.Click += new System.EventHandler(this.bannerImage_Click);
+            // 
+            // noPostLbl
+            // 
+            this.noPostLbl.AutoSize = true;
+            this.noPostLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noPostLbl.Location = new System.Drawing.Point(97, 77);
+            this.noPostLbl.Name = "noPostLbl";
+            this.noPostLbl.Size = new System.Drawing.Size(0, 39);
+            this.noPostLbl.TabIndex = 64;
             // 
             // FriendList
             // 
@@ -201,6 +214,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Friend List";
             this.Load += new System.EventHandler(this.FriendList_Load);
+            this.friendListPanel.ResumeLayout(false);
+            this.friendListPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bannerImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -219,5 +234,6 @@
         private System.Windows.Forms.Button nameBtn;
         private System.Windows.Forms.Button searchBtn;
         internal System.Windows.Forms.PictureBox bannerImage;
+        private System.Windows.Forms.Label noPostLbl;
     }
 }

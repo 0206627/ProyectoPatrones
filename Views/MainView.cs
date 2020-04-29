@@ -58,7 +58,6 @@ namespace MiniFacebookVisual
             }
             else
             {
-                MessageBox.Show("ID: " + res.ToString());
                 user = proxy.GetUserById(res);
             }
 
@@ -92,7 +91,6 @@ namespace MiniFacebookVisual
                 else
                 {
                     MessageBox.Show("Correo electrónico inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    valid = false;
                     return;
                 }
 
@@ -100,7 +98,6 @@ namespace MiniFacebookVisual
                 else
                 {
                     MessageBox.Show("Tu contraseña debe tener al menos 8 caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    valid = false;
                     pwdRegisterTxt.Text = "Contraseña";
                     pwdRegisterTxt.UseSystemPasswordChar = false;
                     pwdRegisterTxt.ForeColor = SystemColors.InactiveCaption;
@@ -117,6 +114,10 @@ namespace MiniFacebookVisual
                 {
                     valid = false;
                     MessageBox.Show("Ingresar una fecha de nacimiento válida. Tener al menos 15 años de edad", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    pwdRegisterTxt.Text = "Contraseña";
+                    pwdRegisterTxt.UseSystemPasswordChar = false;
+                    pwdRegisterTxt.ForeColor = SystemColors.InactiveCaption;
+                    return;
 
                 }
 
@@ -141,13 +142,10 @@ namespace MiniFacebookVisual
 
                     if (res != 0)
                     {
-                        valid = true;
-                        MessageBox.Show("ID " + res.ToString());
                         user = proxy.GetUserById(res);
                     }
                     else
                     {
-                        valid = false;
                         MessageBox.Show("Ocurrió un error.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 

@@ -116,6 +116,7 @@
             this.Name = "ChooseProfilePicture";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configuración Perfil";
+            this.Load += new System.EventHandler(this.ChooseProfilePicture_Load);
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

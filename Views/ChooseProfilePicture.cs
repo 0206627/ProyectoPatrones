@@ -69,5 +69,10 @@ namespace MiniFacebookVisual
         {
 
         }
+
+        private void ChooseProfilePicture_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -44,10 +44,15 @@ namespace MiniFacebookVisual
             else friendsBtn.Text = "Eliminar amigo";
             var feedCooker = new FeedCooker(new BuilderProfileFeed(this.refresh, this, postPanel, user.ID, otherUser.ID, proxy));
             feedCooker.ObtenerFeed();
+            if (postPanel.Controls.Count < 2)
+            {
+                noPostLbl.Text = "Sin actividad en su perfil.";
+            }
         }
 
         public void refresh()
         {
+            noPostLbl.Text = "";
             int scroll = postPanel.VerticalScroll.Value;
             postPanel.Controls.Clear();
             var feedCooker = new FeedCooker(new BuilderProfileFeed(this.refresh, this, postPanel, user.ID, otherUser.ID, proxy));
@@ -99,10 +104,7 @@ namespace MiniFacebookVisual
 
                 if (check)
                 {
-                    this.Hide();
-                    Form next = new OtherProfile(otherUser.ID);
-                    next.ShowDialog();
-                    this.Close();
+                    friendsBtn.Text = "Eliminar amigo";
                 }
                 else
                 {
@@ -119,10 +121,7 @@ namespace MiniFacebookVisual
 
                     if (check)
                     {
-                        this.Hide();
-                        Form next = new OtherProfile(otherUser.ID);
-                        next.ShowDialog();
-                        this.Close();
+                        friendsBtn.Text = "Añadir amigo";
                     } else
                     {
                         MessageBox.Show("Error al eliminar amigo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -135,10 +134,7 @@ namespace MiniFacebookVisual
 
                 if (check)
                 {
-                    this.Hide();
-                    Form next = new OtherProfile(otherUser.ID);
-                    next.ShowDialog();
-                    this.Close();
+                    friendsBtn.Text = "Cancelar solicitud";
                 }
                 else
                 {
@@ -152,10 +148,7 @@ namespace MiniFacebookVisual
 
                     if (check)
                     {
-                        this.Hide();
-                        Form next = new OtherProfile(otherUser.ID);
-                        next.ShowDialog();
-                        this.Close();
+                        friendsBtn.Text = "Añadir amigo";
                     }
                     else
                     {

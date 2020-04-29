@@ -63,7 +63,7 @@ namespace MiniFacebookVisual
 
         private void FriendSearch_Load(object sender, EventArgs e)
         {
-            //this.Size = new Size(1759, 1433);
+
         }
 
         private void resultsLabel_Click(object sender, EventArgs e)

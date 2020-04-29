@@ -1,5 +1,6 @@
 ﻿using MiniFacebookVisual.Models;
 using MiniFacebookVisual.Patrones.BuilderPattern.Models;
+using MiniFacebookVisual.Views;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -57,6 +58,7 @@ namespace MiniFacebookVisual.Patrones.BuilderPattern.Builder
             this.changeLikeLbl();
             likesCountLbl.Location = new Point(likeBtn.Location.X + likeBtn.Width + 10, likeBtn.Location.Y + 5);
             likesCountLbl.AutoSize = true;
+            likesCountLbl.Click += new EventHandler(likeLblClick);
 
             temp.Controls.Add(likeBtn);
             temp.Controls.Add(likesCountLbl);
@@ -82,6 +84,11 @@ namespace MiniFacebookVisual.Patrones.BuilderPattern.Builder
             }
         }
 
+        public void likeLblClick(object sender, EventArgs e)
+        {
+            Form next = new LikeList(likeComment.postID);
+            next.ShowDialog();
+        }
         private void changeLikeBtn(Button likeBtn)
         {
             if (likeBtn.BackColor == Color.Transparent)

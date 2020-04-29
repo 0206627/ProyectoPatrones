@@ -151,5 +151,10 @@ namespace MiniFacebookVisual.Views
             next.ShowDialog();
             this.Close();
         }
+
+        private void profilePictureImage_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

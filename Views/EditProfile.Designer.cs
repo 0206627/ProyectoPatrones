@@ -139,12 +139,12 @@
             this.nameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nameBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameBtn.ForeColor = System.Drawing.Color.White;
-            this.nameBtn.Location = new System.Drawing.Point(977, 41);
+            this.nameBtn.Location = new System.Drawing.Point(951, 43);
             this.nameBtn.Name = "nameBtn";
             this.nameBtn.Size = new System.Drawing.Size(124, 43);
             this.nameBtn.TabIndex = 70;
             this.nameBtn.Text = "Nombre";
-            this.nameBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.nameBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.nameBtn.UseVisualStyleBackColor = false;
             this.nameBtn.Click += new System.EventHandler(this.nameBtn_Click);
             // 
@@ -184,6 +184,7 @@
             this.profilePictureImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.profilePictureImage.TabIndex = 77;
             this.profilePictureImage.TabStop = false;
+            this.profilePictureImage.Click += new System.EventHandler(this.profilePictureImage_Click);
             // 
             // selectImageBtn
             // 

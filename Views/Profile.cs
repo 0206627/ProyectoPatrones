@@ -29,10 +29,15 @@ namespace MiniFacebookVisual
             countFriendsLabel.Text = user.friends.Count.ToString();
             var feedCooker = new FeedCooker(new BuilderProfileFeed(this.refresh, this, postPanel, user.ID, user.ID, proxy));
             feedCooker.ObtenerFeed();
+            if (postPanel.Controls.Count < 2)
+            {
+                noPostLbl.Text = "Sin actividad en tu perfil.";
+            }
         }
 
         public void refresh()
         {
+            noPostLbl.Text = "";
             int scroll = postPanel.VerticalScroll.Value;
             postPanel.Controls.Clear();
             var feedCooker = new FeedCooker(new BuilderProfileFeed(this.refresh, this, postPanel, user.ID, user.ID, proxy));

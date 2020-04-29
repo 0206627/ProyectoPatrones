@@ -344,7 +344,7 @@
     <value>Microsoft Sans Serif, 9pt, style=Bold</value>
   </data>
   <data name="nameBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>958, 41</value>
+    <value>923, 41</value>
   </data>
   <data name="nameBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>124, 43</value>

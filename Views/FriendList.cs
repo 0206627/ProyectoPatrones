@@ -25,6 +25,13 @@ namespace MiniFacebookVisual
             this.proxy = MainView.proxy;
             result = new FriendListResult(this, friendListPanel, user.ID, user.friends, proxy);
             result.AddResults();
+            if (friendListPanel.Controls.Count < 2)
+            {
+                noPostLbl.Text = "Sin amigos.";
+            } else
+            {
+                noPostLbl.Text = "";
+            }
             nameBtn.Text = user.firstName;
         }
 
@@ -83,6 +90,11 @@ namespace MiniFacebookVisual
             Form next = new FeedView();
             next.ShowDialog();
             this.Close();
+        }
+
+        private void bannerImage_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

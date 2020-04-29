@@ -171,7 +171,7 @@
             this.nameBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.nameBtn.ForeColor = System.Drawing.Color.White;
             this.nameBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.nameBtn.Location = new System.Drawing.Point(975, 41);
+            this.nameBtn.Location = new System.Drawing.Point(932, 43);
             this.nameBtn.Name = "nameBtn";
             this.nameBtn.Size = new System.Drawing.Size(124, 43);
             this.nameBtn.TabIndex = 85;

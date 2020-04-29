@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OtherProfile));
             this.miembroDesdeLabel = new System.Windows.Forms.Label();
             this.postPanel = new System.Windows.Forms.Panel();
+            this.noPostLbl = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dateJoinedLabel = new System.Windows.Forms.Label();
             this.logOutBtn = new System.Windows.Forms.Button();
@@ -51,6 +52,7 @@
             this.bannerImage = new System.Windows.Forms.PictureBox();
             this.friendsBtn = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.postPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bannerImage)).BeginInit();
             this.SuspendLayout();
@@ -69,10 +71,20 @@
             // 
             this.postPanel.AutoScroll = true;
             this.postPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.postPanel.Controls.Add(this.noPostLbl);
             this.postPanel.Location = new System.Drawing.Point(232, 649);
             this.postPanel.Name = "postPanel";
             this.postPanel.Size = new System.Drawing.Size(1315, 644);
             this.postPanel.TabIndex = 78;
+            // 
+            // noPostLbl
+            // 
+            this.noPostLbl.AutoSize = true;
+            this.noPostLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noPostLbl.Location = new System.Drawing.Point(86, 73);
+            this.noPostLbl.Name = "noPostLbl";
+            this.noPostLbl.Size = new System.Drawing.Size(0, 39);
+            this.noPostLbl.TabIndex = 83;
             // 
             // label4
             // 
@@ -242,7 +254,7 @@
             this.nameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nameBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameBtn.ForeColor = System.Drawing.Color.White;
-            this.nameBtn.Location = new System.Drawing.Point(975, 42);
+            this.nameBtn.Location = new System.Drawing.Point(930, 42);
             this.nameBtn.Name = "nameBtn";
             this.nameBtn.Size = new System.Drawing.Size(124, 43);
             this.nameBtn.TabIndex = 64;
@@ -339,6 +351,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Profile";
             this.Load += new System.EventHandler(this.OtherProfile_Load);
+            this.postPanel.ResumeLayout(false);
+            this.postPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bannerImage)).EndInit();
             this.ResumeLayout(false);
@@ -370,5 +384,6 @@
         internal System.Windows.Forms.PictureBox bannerImage;
         private System.Windows.Forms.Button friendsBtn;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label noPostLbl;
     }
 }

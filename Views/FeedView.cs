@@ -31,6 +31,10 @@ namespace MiniFacebookVisual
             InitializeComponent();
             var feedCooker = new FeedCooker(new BuilderMainFeed(this.refresh, this, postPanel, user.ID, user.ID, proxy));
             feedCooker.ObtenerFeed();
+            if (postPanel.Controls.Count < 2)
+            {
+                noPostLbl.Text = "Sin actividad en tu feed.";
+            } 
             nameBtn.Text = user.firstName;
             imageLocation = "null";
         }
@@ -130,12 +134,6 @@ namespace MiniFacebookVisual
                         }
 
                         List<int> tags = taggedPost.ObtenerTags();
-                        string res = "";
-
-                        foreach (var i in tags)
-                        {
-                            res += i.ToString() + " ";
-                        }
 
                     }
 
@@ -192,6 +190,7 @@ namespace MiniFacebookVisual
 
         public void refresh()
         {
+            noPostLbl.Text = "";
             refreshPost();
             int scroll = postPanel.VerticalScroll.Value;
             postPanel.Controls.Clear();
@@ -208,6 +207,11 @@ namespace MiniFacebookVisual
         }
 
         private void bannerImage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FeedView_Load(object sender, EventArgs e)
         {
 
         }

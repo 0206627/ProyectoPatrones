@@ -36,6 +36,7 @@ namespace MiniFacebookVisual.Models
         int AddTag(string name);
         bool AddPostToTag(int tagID, int postID);
         List<string> GetTags(int postID);
+        List<User> GetLikes(int postID);
 
     }
 }

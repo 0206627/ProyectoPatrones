@@ -21,6 +21,7 @@ namespace MiniFacebookVisual.Patrones.BuilderPattern.Models
         public ProxyFacebook proxy;
         public Action refresh;
         public List<Comment> results;
+        public List<User> likes;
 
         public LikeComment(Action refresh, Form form, Panel panel, Point targetLocation, int postID, int userID, ProxyFacebook proxy)
         {

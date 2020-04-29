@@ -40,6 +40,7 @@
             this.searchTxt = new System.Windows.Forms.TextBox();
             this.bannerImage = new System.Windows.Forms.PictureBox();
             this.postPanel = new System.Windows.Forms.Panel();
+            this.noPostLbl = new System.Windows.Forms.Label();
             this.sharePostPanel = new System.Windows.Forms.Panel();
             this.taggedLbl = new System.Windows.Forms.Label();
             this.withLbl = new System.Windows.Forms.Label();
@@ -52,6 +53,7 @@
             this.sharePostTxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bannerImage)).BeginInit();
+            this.postPanel.SuspendLayout();
             this.sharePostPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.postImage)).BeginInit();
             this.SuspendLayout();
@@ -145,12 +147,13 @@
             this.nameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nameBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameBtn.ForeColor = System.Drawing.Color.White;
-            this.nameBtn.Location = new System.Drawing.Point(959, 39);
+            this.nameBtn.Location = new System.Drawing.Point(930, 40);
             this.nameBtn.Name = "nameBtn";
+            this.nameBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.nameBtn.Size = new System.Drawing.Size(124, 43);
             this.nameBtn.TabIndex = 59;
             this.nameBtn.Text = "Nombre";
-            this.nameBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.nameBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.nameBtn.UseVisualStyleBackColor = false;
             this.nameBtn.Click += new System.EventHandler(this.nameBtn_Click);
             // 
@@ -188,10 +191,20 @@
             // 
             this.postPanel.AutoScroll = true;
             this.postPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.postPanel.Controls.Add(this.noPostLbl);
             this.postPanel.Location = new System.Drawing.Point(192, 536);
             this.postPanel.Name = "postPanel";
             this.postPanel.Size = new System.Drawing.Size(1315, 712);
             this.postPanel.TabIndex = 67;
+            // 
+            // noPostLbl
+            // 
+            this.noPostLbl.AutoSize = true;
+            this.noPostLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noPostLbl.Location = new System.Drawing.Point(71, 60);
+            this.noPostLbl.Name = "noPostLbl";
+            this.noPostLbl.Size = new System.Drawing.Size(0, 39);
+            this.noPostLbl.TabIndex = 0;
             // 
             // sharePostPanel
             // 
@@ -318,7 +331,7 @@
             this.label4.Size = new System.Drawing.Size(0, 25);
             this.label4.TabIndex = 69;
             // 
-            // Feed
+            // FeedView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -339,10 +352,13 @@
             this.Controls.Add(this.searchTxt);
             this.Controls.Add(this.bannerImage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Feed";
+            this.Name = "FeedView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Feed";
+            this.Load += new System.EventHandler(this.FeedView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bannerImage)).EndInit();
+            this.postPanel.ResumeLayout(false);
+            this.postPanel.PerformLayout();
             this.sharePostPanel.ResumeLayout(false);
             this.sharePostPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.postImage)).EndInit();
@@ -375,5 +391,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label taggedLbl;
         private System.Windows.Forms.Label withLbl;
+        private System.Windows.Forms.Label noPostLbl;
     }
 }
