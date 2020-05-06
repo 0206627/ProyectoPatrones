@@ -1,4 +1,5 @@
 ﻿using Core.Models;
+using MiniFacebookVisual;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -25,7 +26,7 @@ namespace DAL
 
         public IFacebookData()
         {
-            this.connectionString = "Data Source=DESKTOP-A5ROM1O;Initial Catalog = minifacebook;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            this.connectionString = Configuration.connectionString;
         }
 
         public virtual bool Conectar()
