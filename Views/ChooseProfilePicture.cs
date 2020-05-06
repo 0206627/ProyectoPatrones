@@ -27,7 +27,7 @@ namespace MiniFacebookVisual
 
             nameLabel.Text = user.firstName;
 
-            imageLocation = "C:\\Users\\Mariana De la Vega\\Desktop\\Patrones\\MiniFacebookVisual\\images\\profileIcon.png";
+            imageLocation = Configuration.imageRoute+"profileIcon.png";
         }
 
         private void selectImageBtn_Click(object sender, EventArgs e)

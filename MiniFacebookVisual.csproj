@@ -101,6 +101,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration.cs" />
     <Compile Include="Custom Views\FriendListResult.cs" />
     <Compile Include="Custom Views\FriendRequestCustom.cs" />
     <Compile Include="Custom Views\FriendSearchResult.cs" />

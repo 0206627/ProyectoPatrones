@@ -42,12 +42,12 @@ namespace MiniFacebookVisual.Patrones.BuilderPattern.Builder
             bool isLiked = likeComment.proxy.IsLiked(likeComment.postID, likeComment.userID);
             if (isLiked)
             {
-                likeBtn.BackgroundImage = Image.FromFile("C:\\Users\\Mariana De la Vega\\Desktop\\Patrones\\MiniFacebookVisual\\images\\likeIcon2.png");
+                likeBtn.BackgroundImage = Image.FromFile(Configuration.imageRoute+"likeIcon2.png");
                 likeBtn.BackColor = Color.FromArgb(1, 52, 107);
             }
             else
             {
-                likeBtn.BackgroundImage = Image.FromFile("C:\\Users\\Mariana De la Vega\\Desktop\\Patrones\\MiniFacebookVisual\\images\\likeIcon2Blue.png");
+                likeBtn.BackgroundImage = Image.FromFile(Configuration.imageRoute+"likeIcon2Blue.png");
                 likeBtn.BackColor = Color.Transparent;
             }
             likeBtn.Size = new Size(40, 25);
@@ -93,12 +93,12 @@ namespace MiniFacebookVisual.Patrones.BuilderPattern.Builder
         {
             if (likeBtn.BackColor == Color.Transparent)
             {
-                likeBtn.BackgroundImage = Image.FromFile("C:\\Users\\Mariana De la Vega\\Desktop\\Patrones\\MiniFacebookVisual\\images\\likeIcon2.png");
+                likeBtn.BackgroundImage = Image.FromFile(Configuration.imageRoute+"likeIcon2.png");
                 likeBtn.BackColor = Color.FromArgb(1, 52, 107);
             }
             else
             {
-                likeBtn.BackgroundImage = Image.FromFile("C:\\Users\\Mariana De la Vega\\Desktop\\Patrones\\MiniFacebookVisual\\images\\likeIcon2Blue.png");
+                likeBtn.BackgroundImage = Image.FromFile(Configuration.imageRoute+"likeIcon2Blue.png");
                 likeBtn.BackColor = Color.Transparent;
             }
         }
