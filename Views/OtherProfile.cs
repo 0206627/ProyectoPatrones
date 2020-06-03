@@ -29,6 +29,7 @@ namespace MiniFacebookVisual
             proxy = MainView.proxy;
             otherUser = proxy.GetUserById(otherUserID);
             user = proxy.GetUserById(user.ID);
+            otherUser.friends = proxy.GetFriends(otherUser.ID);
             checkFriendship = proxy.CheckFriendship(user.ID, otherUser.ID);
             checkRequest = proxy.CheckRequest(user.ID, otherUser.ID);
             checkInversedRequest = proxy.CheckRequest(otherUser.ID, user.ID);
@@ -37,6 +38,7 @@ namespace MiniFacebookVisual
             birthdayDateLabel.Text = otherUser.birthday.Day.ToString() + " de " + otherUser.birthday.ToString("MMMM");
             profilePictureImage.Image = Image.FromFile(otherUser.profilePicture);
             nameBtn.Text = user.firstName;
+            countFriendsLabel.Text = otherUser.friends.Count.ToString();
             if (checkRequest) friendsBtn.Text = "Aceptar solicitud";
             else if (checkInversedRequest) friendsBtn.Text = "Cancelar solicitud";
             else if (!checkFriendship) friendsBtn.Text = "Añadir amigo";
